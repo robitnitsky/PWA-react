@@ -1,38 +1,16 @@
-import React from 'react';
-import Lights from "../Lights/Lights";
-import dashboardBg from '../../dashboard.jpeg'
+import React, {useState} from 'react';
+import { Speedometer } from '../Speedometer/Speedometer';
+import { Button } from '../Button/Button'
 
-interface DashboardState {
-    isLightsOn?: boolean;
-}
+export const Dashboard = () => {
+    const [isLightsOn, setIsLightsOn] = useState(false);
 
-class Dashboard extends React.Component<{}, DashboardState> {
-    constructor(props: {}) {
-        super(props);
-
-        this.state = {
-            isLightsOn: false,
-        }
+    const switchLights = () => {
+        setIsLightsOn(!isLightsOn);
     }
 
-    style() {
-        return {
-            backgroundImage: `url(${dashboardBg})`
-        };
-    };
-
-    setLights = (state:boolean) => {
-        this.setState({isLightsOn: state});
-    };
-
-    render() {
-        return (
-            <div className="dashboard"
-                 style={this.style()}>
-                <Lights clicked={this.state.isLightsOn} onClick={this.setLights} />
-            </div>
-        );
-    }
+    return <div className="dashboard">
+        <Speedometer isOn={isLightsOn} />
+        <Button onClick={switchLights} isOn={isLightsOn}/>
+    </div>
 }
-
-export default Dashboard;

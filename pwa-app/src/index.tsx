@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import Dashboard from "./components/Dashboard/Dashboard";
+import { Dashboard } from "./components/Dashboard/Dashboard";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

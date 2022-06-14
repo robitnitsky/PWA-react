@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
+@import "components/Speedometer/style";
+
 .dashboard {
   position: relative;
   width: 800px;
